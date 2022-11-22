@@ -29,9 +29,7 @@ public class Motifs {
         char[][] a = new char[taille][taille];
 
         for (int i = 0; i < taille; i++) {
-            for (int j = 0; j < taille; j++) {
-                a[i][j] = '*';
-            }
+            for (int j = 0; j < taille; j++) a[i][j] = '*';
         }
 
         return a;
@@ -42,11 +40,7 @@ public class Motifs {
 
         for (int i = 0; i < taille; i++) {
             for (int j = 0; j < taille; j++) {
-                if(j >= i) {
-                    a[i][j] = '*';
-                } else {
-                    a[i][j] = '.';
-                }
+                a[i][j] = j >= i ? '*' : '.';
             }
         }
 
@@ -58,11 +52,7 @@ public class Motifs {
         
         for (int i = 0; i < taille; i++) {
             for (int j = 0; j < taille; j++) {
-                if(i == j || i + j == taille -1) {
-                    a[i][j] = '*';
-                } else {
-                    a[i][j] = '.';
-                }
+                a[i][j] = i == j || i + j == taille -1 ? '*' : '.';
             }
         }
         
@@ -76,17 +66,11 @@ public class Motifs {
         
         for (int i = 0; i < taille; i++) {
 
-            for (int j = 0; j < taille; j++) {
-                a[i][j] = '.';
-            }
+            for (int j = 0; j < taille; j++) a[i][j] = '.';
             
-            for (int j = 0; j <= l; j++) {
-                a[i][j] = '*';
-            }
+            for (int j = 0; j <= l; j++) a[i][j] = '*';
 
-            for (int j = h; j < taille; j++) {
-                a[i][j] = '*';
-            }
+            for (int j = h; j < taille; j++) a[i][j] = '*';
             
             if(i <= (taille - 2) / 2) {
                 l++;
@@ -107,20 +91,10 @@ public class Motifs {
 
         for (int i = 0; i < taille; i++) {
             for (int j = 0; j < taille; j++) {
-
-                if(j >= (taille - nbCar) / 2 && j < taille - ((taille - nbCar) / 2)) {
-                    a[i][j] = '*';
-                    
-                } else {
-                    a[i][j] = '.';
-                }
+                a[i][j] = j >= (taille - nbCar) / 2 && j < taille - ((taille - nbCar) / 2) ? '*' :  '.';
             }
 
-            if(i < (taille - 1) / 2) {
-                nbCar += 2;
-            } else {
-                nbCar -= 2;
-            }
+            nbCar = i < (taille - 1) / 2 ? nbCar + 2 : nbCar - 2;
         }
         return a;
     }
