@@ -12,28 +12,30 @@ public class CompteurBinaire {
         int[] tableauBits = new int[nbBits];
 
         // Entrée en boucle pour afficher les données
-        while(concatener(tableauBits).contains("0")) {
+        // while(concatener(tableauBits).contains("0")) {
+        //     System.out.println(concatener(tableauBits));
+        //     ajouterUn(tableauBits);
+        // }
+        // System.out.println(concatener(tableauBits));
+
+        // Correction de la boucle de traitement
+        for (int i = 0; i < Math.pow(2, nbBits); i++) {
             System.out.println(concatener(tableauBits));
             ajouterUn(tableauBits);
         }
-        System.out.println(concatener(tableauBits));
     }
 
     /**
      * Fonction permettant d'ajouter 1 à un tableau représentant une chaîne binaire
      * @param t tableau d'entiers contenant la chaîne binaire
-     * @return tableau augmenter de un
      */
-    public static int[] ajouterUn(int[] t) {
+    public static void ajouterUn(int[] t) {
         for (int i = t.length - 1; i >= 0; i--) {
             
             t[i] = t[i] == 1 ? 0 : 1;
             
-            if(t[i] == 1) {
-                break;
-            }
+            if(t[i] == 1) break;
         }
-        return t;
     }
     
     /**
